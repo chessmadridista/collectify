@@ -1,6 +1,5 @@
 <script setup>
 import AppButtonLogout from './AppButtonLogout.vue'
-import AppButtonYourLearnings from './AppButtonYourLearnings.vue';
 </script>
 <template>
     <v-app-bar app color="#004ba0">
