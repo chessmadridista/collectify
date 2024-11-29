@@ -72,39 +72,49 @@ onBeforeMount(() => {
 })
 </script>
 <template>
-    <v-card class="pa-4 rounded-xl">
-        <v-card-title class="text-center text-blue-grey-darken-2">
-            Your links
-        </v-card-title>
-        <v-card-text v-if="linkStore.links.length > 0">
-            <v-list>
-                <v-list-item prepend-icon="mdi-lightbulb-outline" class="text-pre-wrap bg-blue-lighten-5 mt-2 py-4" rounded="lg" v-for="link in linkStore.links" @click="editLink(link)" :key="link.id">
-                    {{ link.description }}
-                </v-list-item>
-            </v-list>
-        </v-card-text>
-        <v-card-text v-if="newLinkInputFieldVisibility">
-            <v-form ref="form" @submit.prevent="addNewLink">
-                <v-textarea 
-                    ref="newLinkTextAreaRef"
-                    color="primary"
-                    label="Describe the link in detail*"
-                    v-model="newLink"
-                    :rules="[(v) => !!v || 'This field is required.']"
-                />
-                <div class="text-right">
-                    <v-btn class="rounded-pill" type="submit" variant="elevated" color="#28a745" prepend-icon="mdi-check">
-                        Add this link
-                    </v-btn>
-                </div>
-            </v-form>
-        </v-card-text>
-        <v-card-actions v-else class="d-flex justify-end">
-            <v-btn variant="elevated" color="#007bff" @click="showNewLinkInputField" prepend-icon="mdi-plus" class="rounded-pill">
-                Create new link
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+    <v-container>
+        <v-row>
+            <v-col cols="12">
+
+                <v-card class="pa-4 rounded-xl">
+                    <v-card-title class="text-center text-blue-grey-darken-2">
+                        Your links
+                    </v-card-title>
+                    <v-card-text v-if="linkStore.links.length > 0">
+                        <v-list>
+                            <v-list-item :href="link.description" target="_blank" prepend-icon="mdi-link" class="text-pre-wrap bg-blue-lighten-5 mt-2 py-4" rounded="lg" v-for="link in linkStore.links" :key="link.id">
+                                {{ link.description }}
+                                <template v-slot:append>
+                                    <v-icon color="primary" class="mr-2" @click.prevent="editLink(link)">mdi-pencil</v-icon>
+                                </template>
+                            </v-list-item>
+                        </v-list>
+                    </v-card-text>
+                    <v-card-text v-if="newLinkInputFieldVisibility">
+                        <v-form ref="form" @submit.prevent="addNewLink">
+                            <v-textarea 
+                                ref="newLinkTextAreaRef"
+                                color="primary"
+                                label="Describe the link in detail*"
+                                v-model="newLink"
+                                :rules="[(v) => !!v || 'This field is required.']"
+                            />
+                            <div class="text-right">
+                                <v-btn class="rounded-pill" type="submit" variant="elevated" color="#28a745" prepend-icon="mdi-check">
+                                    Add this link
+                                </v-btn>
+                            </div>
+                        </v-form>
+                    </v-card-text>
+                    <v-card-actions v-else class="d-flex justify-end">
+                        <v-btn variant="elevated" color="#007bff" @click="showNewLinkInputField" prepend-icon="mdi-plus" class="rounded-pill">
+                            Add link
+                        </v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 <style scoped>
 .text-pre-wrap {
