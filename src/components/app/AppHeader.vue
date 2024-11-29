@@ -4,7 +4,7 @@ import AppButtonLogout from './AppButtonLogout.vue'
 <template>
     <v-app-bar app color="#004ba0">
         <router-link to="/" class="title-container ml-4">
-            <v-app-bar-title>Idea Tracker for Indie Hackers</v-app-bar-title>
+            <v-app-bar-title>Collectify</v-app-bar-title>
         </router-link>
         <v-spacer></v-spacer>
         <AppButtonYourLearnings />
