@@ -47,7 +47,7 @@ function yes() {
 </template>
 <style scoped>
 .delete-collection-card {
-    max-width: 400px;
+    max-width: 500px;
     margin: auto;
 }
 </style>
