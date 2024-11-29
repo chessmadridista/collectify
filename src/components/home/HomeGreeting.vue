@@ -13,14 +13,14 @@ function addNewCollection() {
         <v-row>
             <v-col>
                 <h3 class="text-center text-blue-grey-darken-2">
-                    Your app collections
+                    Your collections
                 </h3>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
                 <p class="text-grey-darken-1">
-                    👋 @{{ userStore.username }}, these are your app collections.
+                    👋 @{{ userStore.username }}, these are your collections.
                 </p>
             </v-col>
             <v-col class="text-right">
