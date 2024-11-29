@@ -50,7 +50,7 @@ function createNewTask() {
             <v-card-text>
                 <v-form ref="form" @submit.prevent="createNewTask">
                     <v-text-field 
-                        label="What is your app collection?*" 
+                        label="What is your collection about?*" 
                         v-model="name" 
                         :rules="[v => !!v || 'This field is required.']"
                     />

@@ -1,6 +1,6 @@
 export { useUserStore } from './userStore'
 export { useGeneralStore } from './generalStore'
 export { useCollectionStore } from './collectionStore'
-export { useFeatureStore } from './featureStore'
+export { useLinkStore } from './linkStore'
 export { useJournalStore } from './journalStore'
 export { useNoteStore } from './noteStore'
