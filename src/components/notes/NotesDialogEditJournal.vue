@@ -15,13 +15,13 @@ function updateNote() {
             const endPoint = '/update-note'
             const formData = new FormData()
             formData.append('note_id', noteStore.editedNote.id)
-            formData.append('idea_id', noteStore.editedNote.idea_id)
+            formData.append('collection_id', noteStore.editedNote.collection_id)
             formData.append('note_description', noteStore.editedNoteDescription)
             axios.post(endPoint, formData)
                 .then(response => {
                     const editedNote = {
                         id: noteStore.editedNote.id,
-                        idea_id: noteStore.editedNote.idea_id,
+                        collection_id: noteStore.editedNote.collection_id,
                         description: noteStore.editedNoteDescription
                     }
                     noteStore.updateNote(editedNote)
@@ -46,11 +46,11 @@ function updateNote() {
 
 function deleteNote() {
     const endPoint = '/delete-note'
-    const ideaId = router.currentRoute.value.params.id
+    const collectionId = router.currentRoute.value.params.id
     const formData = new FormData()
     const noteToBeDeleted = noteStore.editedNote
     formData.append('note_id', noteToBeDeleted.id)
-    formData.append('idea_id', ideaId)
+    formData.append('collection_id', collectionId)
     axios.post(endPoint, formData)
     .then(response => {
         generalStore.setSnackbarMessage(response.data.message)

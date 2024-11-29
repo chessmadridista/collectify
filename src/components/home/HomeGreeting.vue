@@ -1,11 +1,11 @@
 <script setup>
-import { useUserStore, useIdeaStore } from '@/stores';
+import { useUserStore, useCollectionStore } from '@/stores';
 
-const ideaStore = useIdeaStore()
+const collectionStore = useCollectionStore()
 const userStore = useUserStore()
 
-function addNewIdea() {
-    ideaStore.showAddNewIdeaDialog()
+function addNewCollection() {
+    collectionStore.showAddNewCollectionDialog()
 }
 </script>
 <template>
@@ -13,19 +13,19 @@ function addNewIdea() {
         <v-row>
             <v-col>
                 <h3 class="text-center text-blue-grey-darken-2">
-                    Your app ideas
+                    Your app collections
                 </h3>
             </v-col>
         </v-row>
         <v-row>
             <v-col>
                 <p class="text-grey-darken-1">
-                    👋 @{{ userStore.username }}, these are your app ideas.
+                    👋 @{{ userStore.username }}, these are your app collections.
                 </p>
             </v-col>
             <v-col class="text-right">
-                <v-btn class="rounded-pill" @click="addNewIdea" color="#007bff" prepend-icon="mdi-plus">
-                    Add new idea
+                <v-btn class="rounded-pill" @click="addNewCollection" color="#007bff" prepend-icon="mdi-plus">
+                    Add new collection
                 </v-btn>
             </v-col>
         </v-row>

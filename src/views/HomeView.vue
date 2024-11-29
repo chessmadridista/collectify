@@ -1,10 +1,10 @@
 <script setup>
 import HomeGreeting from '@/components/home/HomeGreeting.vue'
-import HomeDialogCreateNewIdea from '@/components/home/HomeDialogCreateNewIdea.vue'
-import HomeContainerIdeas from '@/components/home/HomeContainerIdeas.vue';
+import HomeDialogCreateNewCollection from '@/components/home/HomeDialogCreateNewCollection.vue'
+import HomeContainerCollections from '@/components/home/HomeContainerCollections.vue';
 </script>
 <template>
   <HomeGreeting />
-  <HomeDialogCreateNewIdea />
-  <HomeContainerIdeas />
+  <HomeDialogCreateNewCollection />
+  <HomeContainerCollections />
 </template>

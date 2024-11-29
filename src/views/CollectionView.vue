@@ -1,7 +1,7 @@
 <script setup>
-import IdeaCardDetails from '@/components/idea/IdeaCardDetails.vue';
-import IdeaDialogDeleteIdea from '@/components/idea/IdeaDialogDeleteIdea.vue';
-import IdeaDialogEditIdea from '@/components/idea/IdeaDialogEditIdea.vue';
+import CollectionCardDetails from '@/components/collection/CollectionCardDetails.vue';
+import CollectionDialogDeleteCollection from '@/components/collection/CollectionDialogDeleteCollection.vue';
+import CollectionDialogEditCollection from '@/components/collection/CollectionDialogEditCollection.vue';
 import FeaturesCard from '@/components/features/FeaturesCard.vue';
 import FeaturesDialogEditFeature from '@/components/features/FeaturesDialogEditFeature.vue';
 import JournalsCard from '@/components/journals/JournalsCard.vue';
@@ -10,9 +10,9 @@ import NotesCard from '@/components/notes/NotesCard.vue';
 import NotesDialogEditJournal from '@/components/notes/NotesDialogEditJournal.vue';
 </script>
 <template>
-    <IdeaCardDetails />
-    <IdeaDialogEditIdea />
-    <IdeaDialogDeleteIdea />
+    <CollectionCardDetails />
+    <CollectionDialogEditCollection />
+    <CollectionDialogDeleteCollection />
     <v-container>
         <v-row>
             <v-col cols="12" lg="6">

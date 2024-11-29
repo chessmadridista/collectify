@@ -1,19 +1,19 @@
 <script setup>
-import { useIdeaStore } from '@/stores';
+import { useCollectionStore } from '@/stores';
 import { onBeforeMount, inject } from 'vue';
 
-const ideaStore = useIdeaStore()
+const collectionStore = useCollectionStore()
 const axios = inject('axios')
 
 onBeforeMount(() => {
-    const endPoint = '/get-ideas'
+    const endPoint = '/get-collections'
     axios.get(endPoint)
     .then(response => {
-        ideaStore.setIdeas(response.data.ideas)
+        collectionStore.setCollections(response.data.collections)
     })
     .catch(error => {
         if (error.response.status === 404) {
-            ideaStore.setIdeas(error.response.data.ideas)
+            collectionStore.setCollections(error.response.data.collections)
         }
     })
 })
@@ -21,13 +21,13 @@ onBeforeMount(() => {
 <template>
     <v-container>
         <v-row>
-            <v-col v-for="idea in ideaStore.ideas" :key="idea.id" cols="12" lg="6" xl="4">
-                <v-card class="pa-4 rounded-xl elevation-4" :to="{ name: 'idea', params: { id: idea.id } }">
+            <v-col v-for="collection in collectionStore.collections" :key="collection.id" cols="12" lg="6" xl="4">
+                <v-card class="pa-4 rounded-xl elevation-4" :to="{ name: 'collection', params: { id: collection.id } }">
                     <v-card-title class="text-center text-primary-darken-1">
-                        {{ idea.name }}
+                        {{ collection.name }}
                     </v-card-title>
                     <v-card-text class="text-blue-grey-darken-3">
-                        {{ idea.description }}
+                        {{ collection.description }}
                     </v-card-text>
                 </v-card>
             </v-col>

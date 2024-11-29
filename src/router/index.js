@@ -4,7 +4,7 @@ import { inject } from 'vue'
 import SignupView from '../views/SignupView.vue'
 import LoginView from '../views/LoginView.vue'
 import HomeView from '../views/HomeView.vue'
-import IdeaView from '@/views/IdeaView.vue'
+import CollectionView from '@/views/CollectionView.vue'
 import AllJournalsView from '@/views/AllJournalsView.vue'
 
 const router = createRouter({
@@ -16,9 +16,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/idea/:id',
-      name: 'idea',
-      component: IdeaView
+      path: '/collection/:id',
+      name: 'collection',
+      component: CollectionView
     },
     {
       path: '/journals',

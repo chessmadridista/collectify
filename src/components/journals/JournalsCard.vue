@@ -15,16 +15,16 @@ const newJournal = ref('')
 function addNewJournal() {
     form.value.validate().then((response) => {
         if (response.valid) {
-            const ideaId = router.currentRoute.value.params.id
+            const collectionId = router.currentRoute.value.params.id
             const endPoint = "/create-journal"
             const formData = new FormData()
-            formData.append('idea_id', ideaId)
+            formData.append('collection_id', collectionId)
             formData.append('journal_description', newJournal.value)
             axios.post(endPoint, formData)
             .then(response => {
                 const journal = {
                     id: response.data.journal_id,
-                    idea_id: ideaId,
+                    collection_id: collectionId,
                     description: newJournal.value,
                 }
                 journalStore.addJournal(journal)
@@ -47,8 +47,8 @@ function editJournal(journal) {
 }
 
 function getJournals() {
-    const ideaId = router.currentRoute.value.params.id
-    const endPoint = `/get-journals?idea_id=${ideaId}`
+    const collectionId = router.currentRoute.value.params.id
+    const endPoint = `/get-journals?collection_id=${collectionId}`
     axios.get(endPoint)
     .then(response => {
         journalStore.setJournals(response.data.journals)

@@ -15,16 +15,16 @@ const newNote = ref('')
 function addNewNote() {
     form.value.validate().then((response) => {
         if (response.valid) {
-            const ideaId = router.currentRoute.value.params.id
+            const collectionId = router.currentRoute.value.params.id
             const endPoint = "/create-note"
             const formData = new FormData()
-            formData.append('idea_id', ideaId)
+            formData.append('collection_id', collectionId)
             formData.append('note_description', newNote.value)
             axios.post(endPoint, formData)
             .then(response => {
                 const note = {
                     id: response.data.note_id,
-                    idea_id: ideaId,
+                    collection_id: collectionId,
                     description: newNote.value,
                 }
                 noteStore.addNote(note)
@@ -47,8 +47,8 @@ function editNote(note) {
 }
 
 function getNotes() {
-    const ideaId = router.currentRoute.value.params.id
-    const endPoint = `/get-notes?idea_id=${ideaId}`
+    const collectionId = router.currentRoute.value.params.id
+    const endPoint = `/get-notes?collection_id=${collectionId}`
     axios.get(endPoint)
     .then(response => {
         noteStore.setNotes(response.data.notes)

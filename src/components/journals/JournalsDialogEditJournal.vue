@@ -15,13 +15,13 @@ function updateJournal() {
             const endPoint = '/update-journal'
             const formData = new FormData()
             formData.append('journal_id', journalStore.editedJournal.id)
-            formData.append('idea_id', journalStore.editedJournal.idea_id)
+            formData.append('collection_id', journalStore.editedJournal.collection_id)
             formData.append('journal_description', journalStore.editedJournalDescription)
             axios.post(endPoint, formData)
                 .then(response => {
                     const editedJournal = {
                         id: journalStore.editedJournal.id,
-                        idea_id: journalStore.editedJournal.idea_id,
+                        collection_id: journalStore.editedJournal.collection_id,
                         description: journalStore.editedJournalDescription
                     }
                     journalStore.updateJournal(editedJournal)
@@ -46,11 +46,11 @@ function updateJournal() {
 
 function deleteJournal() {
     const endPoint = '/delete-journal'
-    const ideaId = router.currentRoute.value.params.id
+    const collectionId = router.currentRoute.value.params.id
     const formData = new FormData()
     const journalToBeDeleted = journalStore.editedJournal
     formData.append('journal_id', journalToBeDeleted.id)
-    formData.append('idea_id', ideaId)
+    formData.append('collection_id', collectionId)
     axios.post(endPoint, formData)
     .then(response => {
         generalStore.setSnackbarMessage(response.data.message)

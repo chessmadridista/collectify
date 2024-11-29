@@ -15,13 +15,13 @@ function updateFeature() {
             const endPoint = '/update-feature'
             const formData = new FormData()
             formData.append('feature_id', featureStore.editedFeature.id)
-            formData.append('idea_id', featureStore.editedFeature.idea_id)
+            formData.append('collection_id', featureStore.editedFeature.collection_id)
             formData.append('feature_description', featureStore.editedFeatureDescription)
             axios.post(endPoint, formData)
                 .then(response => {
                     const editedFeature = {
                         id: featureStore.editedFeature.id,
-                        idea_id: featureStore.editedFeature.idea_id,
+                        collection_id: featureStore.editedFeature.collection_id,
                         description: featureStore.editedFeatureDescription
                     }
                     featureStore.updateFeature(editedFeature)
@@ -46,11 +46,11 @@ function updateFeature() {
 
 function deleteFeature() {
     const endPoint = '/delete-feature'
-    const ideaId = router.currentRoute.value.params.id
+    const collectionId = router.currentRoute.value.params.id
     const formData = new FormData()
     const featureToBeDeleted = featureStore.editedFeature
     formData.append('feature_id', featureToBeDeleted.id)
-    formData.append('idea_id', ideaId)
+    formData.append('collection_id', collectionId)
     axios.post(endPoint, formData)
     .then(response => {
         generalStore.setSnackbarMessage(response.data.message)

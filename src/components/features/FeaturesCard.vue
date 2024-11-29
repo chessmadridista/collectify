@@ -15,16 +15,16 @@ const newFeature = ref('')
 function addNewFeature() {
     form.value.validate().then((response) => {
         if (response.valid) {
-            const ideaId = router.currentRoute.value.params.id
+            const collectionId = router.currentRoute.value.params.id
             const endPoint = "/create-feature"
             const formData = new FormData()
-            formData.append('idea_id', ideaId)
+            formData.append('collection_id', collectionId)
             formData.append('feature_description', newFeature.value)
             axios.post(endPoint, formData)
             .then(response => {
                 const feature = {
                     id: response.data.feature_id,
-                    idea_id: ideaId,
+                    collection_id: collectionId,
                     description: newFeature.value,
                 }
                 featureStore.addFeature(feature)
@@ -47,8 +47,8 @@ function editFeature(feature) {
 }
 
 function getFeatures() {
-    const ideaId = router.currentRoute.value.params.id
-    const endPoint = `/get-features?idea_id=${ideaId}`
+    const collectionId = router.currentRoute.value.params.id
+    const endPoint = `/get-features?collection_id=${collectionId}`
     axios.get(endPoint)
     .then(response => {
         featureStore.setFeatures(response.data.features)
