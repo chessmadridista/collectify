@@ -6,6 +6,7 @@ import LoginView from '../views/LoginView.vue'
 import HomeView from '../views/HomeView.vue'
 import CollectionView from '@/views/CollectionView.vue'
 import AllJournalsView from '@/views/AllJournalsView.vue'
+import SharedCollectionView from '@/views/SharedCollectionView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -34,7 +35,12 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LoginView
-    }
+    },
+    {
+      path: '/view/:id',
+      name: 'view',
+      component: SharedCollectionView
+    },
   ]
 })
 
