@@ -78,7 +78,7 @@ onBeforeMount(() => {
 
                 <v-card class="pa-4 rounded-xl">
                     <v-card-title class="text-center text-blue-grey-darken-2">
-                        Your links
+                        Links
                     </v-card-title>
                     <v-card-text v-if="linkStore.links.length > 0">
                         <v-list>
