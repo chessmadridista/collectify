@@ -95,7 +95,7 @@ onBeforeMount(() => {
                             <v-textarea 
                                 ref="newLinkTextAreaRef"
                                 color="primary"
-                                label="Describe the link in detail*"
+                                label="Link*"
                                 v-model="newLink"
                                 :rules="[(v) => !!v || 'This field is required.']"
                             />
