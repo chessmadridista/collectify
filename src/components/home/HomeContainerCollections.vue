@@ -24,7 +24,7 @@ onBeforeMount(() => {
             <v-col v-for="collection in collectionStore.collections" :key="collection.id" cols="12" lg="6" xl="4">
                 <v-card class="pa-4 rounded-xl elevation-4" :to="{ name: 'collection', params: { id: collection.id } }">
                     <v-card-title class="text-center text-primary-darken-1">
-                        {{ collection.name }}
+                        {{ collection.name }} <v-icon size="x-small">mdi-content-copy</v-icon>
                     </v-card-title>
                     <v-card-text class="text-blue-grey-darken-3">
                         {{ collection.description }}
