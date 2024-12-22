@@ -1,9 +1,18 @@
 <script setup>
-import { useCollectionStore } from '@/stores';
+import { useGeneralStore, useCollectionStore } from '@/stores';
 import { onBeforeMount, inject } from 'vue';
 
+const generalStore = useGeneralStore()
 const collectionStore = useCollectionStore()
 const axios = inject('axios')
+
+function copyToClipboard(collectionId) {
+    const route = window.location.origin
+    navigator.clipboard.writeText(`${route}/#/view/${collectionId}`)
+    generalStore.setSnackbarMessage('Copied to clipboard')
+    generalStore.setSnackbarColor('success')
+    generalStore.showSnackbar()
+}
 
 onBeforeMount(() => {
     const endPoint = '/get-collections'
@@ -24,7 +33,7 @@ onBeforeMount(() => {
             <v-col v-for="collection in collectionStore.collections" :key="collection.id" cols="12" lg="6" xl="4">
                 <v-card class="pa-4 rounded-xl elevation-4" :to="{ name: 'collection', params: { id: collection.id } }">
                     <v-card-title class="text-center text-primary-darken-1">
-                        {{ collection.name }} <v-icon size="x-small">mdi-content-copy</v-icon>
+                        {{ collection.name }} <v-icon @click.stop="copyToClipboard(collection.id)" size="x-small">mdi-content-copy</v-icon>
                     </v-card-title>
                     <v-card-text class="text-blue-grey-darken-3">
                         {{ collection.description }}
