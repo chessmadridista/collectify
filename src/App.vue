@@ -12,7 +12,7 @@ const generalStore = useGeneralStore()
 
 function showHeader() {
   const currentRouteName = router.currentRoute.value.name
-  if (currentRouteName === "login" || currentRouteName === "signup") {
+  if (currentRouteName === "login" || currentRouteName === "signup" || currentRouteName === "view") {
     return false;
   } else {
     return true;

@@ -9,7 +9,7 @@ const axios = inject('axios')
 function copyToClipboard(collectionId) {
     const route = window.location.origin
     navigator.clipboard.writeText(`${route}/#/view/${collectionId}`)
-    generalStore.setSnackbarMessage('Copied to clipboard')
+    generalStore.setSnackbarMessage('The collection url has been copied to clipboard')
     generalStore.setSnackbarColor('success')
     generalStore.showSnackbar()
 }
