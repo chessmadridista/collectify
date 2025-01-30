@@ -45,7 +45,6 @@ onBeforeMount(() => {
 })
 </script>
 <template>
-    <p>{{ collectionStore.selectedCollectionDescription }}</p>
     <v-container>
         <v-card class="pa-4 rounded-xl elevation-4">
             <v-card-title class="text-center text-primary-darken-1">{{ collectionStore.selectedCollectionName }}</v-card-title>
