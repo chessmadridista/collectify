@@ -48,8 +48,8 @@ onBeforeMount(() => {
     <v-container>
         <v-card class="pa-4 rounded-xl elevation-4">
             <v-card-title class="text-center text-primary-darken-1">{{ collectionStore.selectedCollectionName }}</v-card-title>
-            <v-card-subtitle>{{ collectionStore.selectedCollectionDescription }}</v-card-subtitle>
             <v-card-text>
+                <p class="text-blue-grey-darken-2">{{ collectionStore.selectedCollectionDescription }}</p>
                 <v-list>
                     <v-list-item :href="link.description" target="_blank" prepend-icon="mdi-link" class="text-pre-wrap bg-blue-lighten-5 mt-2 py-4" rounded="lg" v-for="link in linkStore.links" :key="link.id">
                         {{ link.description }}
