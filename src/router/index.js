@@ -66,7 +66,7 @@ router.beforeEach((to, from, next) => {
         }
       })
       .catch(error => {
-        if (error.response.status === 401) {
+        if (error.response.status === 401 && to.name !== 'verify-email') {
           userStore.setUser('')
           userStore.setUserLoggedOut()
           next({ name: 'login' })
